@@ -6,6 +6,9 @@
       </p>
     </div>
     <div v-for="message in messages" class="message" :key="message.id">
+      <span class="subtitle" v-if="showMessageName" :style="{ 'color': fontColor(message) }">
+        {{ message.name }}
+      </span>
       <span class="title" v-if="showMessageTitle" :style="{ 'color': fontColor(message) }">
         {{ message.title }}
       </span>
@@ -33,6 +36,10 @@ export default {
     fontColorPriority: {
       type: String,
       default: '#FF0000'
+    },
+    showMessageName: {
+      type: Boolean,
+      default: true
     },
     showMessageTitle: {
       type: Boolean,

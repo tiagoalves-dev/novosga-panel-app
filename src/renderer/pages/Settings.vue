@@ -477,7 +477,7 @@
               </a>
             </div>
           </div>
-          <!--
+<!-- Início do campo de habilitação de vocalização.           -->
           <div class="field">
             <div class="control has-addons">
               <label class="checkbox">
@@ -491,7 +491,7 @@
               </a>
             </div>
           </div>
-          -->
+<!-- Final do campo de habilitação de vocalização          -->
           <hr>
 
           <div class="field is-grouped is-grouped-right">

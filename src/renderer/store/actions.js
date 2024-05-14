@@ -5,6 +5,7 @@ function normalizeMessage (data) {
   return {
     id: data.id,
     type: 'ticket',
+    name: data.nomeCliente,
     title: data.siglaSenha + ('000' + data.numeroSenha).slice(-3),
     subtitle: data.local + ' ' + ('00' + data.numeroLocal).slice(-2),
     description: data.prioridade,

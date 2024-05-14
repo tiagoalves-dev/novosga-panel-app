@@ -3,7 +3,7 @@
     <div class="columns is-gapless">
       <div class="column is-multiline featured-column">
         <header class="column">
-          <featured :message="lastMessage" v-if="lastMessage" @blink="playAudio" :fontColor="color('featuredFontColor', 'pageFontColor')"></featured>
+          <featured :message="lastMessage" v-if="lastMessage" @blink="playAudio(); playSpeech()" :fontColor="color('featuredFontColor', 'pageFontColor')"></featured>
         </header>
         <footer class="column" :style="{ 'background-color': color('footerBgColor'), 'color': color('footerFontColor') }">
           <img :src="logoUrl" class="is-pulled-left">
@@ -37,6 +37,8 @@
   import Featured from '@/components/Featured.vue'
   import History from '@/components/History.vue'
   import audio from '@/services/audio'
+  import speech from '@/services/speech'
+  import { log } from '@/util/functions'
 
   export default {
     name: 'Default',
@@ -62,6 +64,23 @@
     methods: {
       playAudio () {
         audio.playAlert(this.config.alert)
+      },
+      playSpeech () {
+        const lang = this.config.locale || 'pt-BR'
+        log('Testing speech lang', lang)
+
+        speech.speechAll([
+          this.lastMessage.name,
+          'Senha',
+          this.lastMessage.title,
+          this.lastMessage.subtitle,
+          'Atendimento',
+          this.lastMessage.description
+        ], lang).then(() => {
+          log('Testing end')
+        }, (e) => {
+          log('Testing error', e)
+        })
       },
       color (prefix, fallback) {
         const peso = this.lastMessage.$data ? this.lastMessage.$data.peso : 0

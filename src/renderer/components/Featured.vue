@@ -1,7 +1,7 @@
 <template>
   <div class="featured-message">
     <p class="description" :style="{ 'color': fontColor }">
-      {{ message.description || '---' }}
+      {{ message.name || '---' }}
     </p>
     <h1 class="title" :style="{ 'color': fontColor }">
       {{ message.title || '---' }}
@@ -9,8 +9,12 @@
     <h2 class="subtitle" :style="{ 'color': fontColor }">
       {{ message.subtitle || '---' }}
     </h2>
+    <p class="description" :style="{ 'color': fontColor }">
+      {{ message.description || '---' }}
+    </p>
   </div>
 </template>
+
 
 <script>
 import Queue from 'promise-queue'

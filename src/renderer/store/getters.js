@@ -8,6 +8,7 @@ export const message = state => {
   if (!message) {
     message = {
       id: 0,
+      name: '',
       title: '',
       subtitle: '',
       description: ''
