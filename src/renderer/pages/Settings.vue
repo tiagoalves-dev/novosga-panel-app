@@ -518,7 +518,7 @@
   function load (ctx, isInit) {
     ctx.config = JSON.parse(JSON.stringify(ctx.$store.state.config))
     // defaults
-    ctx.config.locale = ctx.config.locale || 'en'
+    ctx.config.locale = ctx.config.locale || 'pt_BR'
     ctx.config.retries = ctx.config.retries || 5
     ctx.config.theme = ctx.config.theme || ctx.themes[0].id
     ctx.config.themeOptions = ctx.config.themeOptions || {}
